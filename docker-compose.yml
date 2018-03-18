@@ -17,3 +17,12 @@ services:
       - "3000:3000"
     depends_on:
       - db
+  guard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: bundle exec guard -i
+    volumes:
+      - .:/project
+    ports:
+      - "35729:35729"
