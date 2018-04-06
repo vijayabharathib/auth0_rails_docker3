@@ -1,4 +1,7 @@
 Rails.application.configure do
+  
+  config.cachestore = :memorystore
+
   config.read_encrypted_secrets = true
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -6,6 +9,10 @@ Rails.application.configure do
   # every request. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
+
+  # whitelist docker container ip
+  # might break for other devs
+  config.web_console.whitelisted_ips = ['172.19.0.1']
 
   # Do not eager load code on boot.
   config.eager_load = false

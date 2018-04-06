@@ -42,9 +42,11 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
-  gem 'guard', '~>2.14.2'
-  gem 'guard-livereload','~>2.5.2'
-  gem 'guard-minitest', '~>2.4.6'
+  gem 'guard', '~>2.14.2', require: false
+  gem 'guard-livereload','~>2.5.2', require: false
+  gem 'guard-minitest', '~>2.4.6', require: false 
+  gem 'rack-livereload'
+  gem 'foreman'
 end
 
 group :development do

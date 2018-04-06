@@ -1,0 +1,22 @@
+<p><%= notice %></p>
+<div>
+<header>
+    <h1>Books</h1>
+    <% if current_user %>
+        <%= link_to '+', new_book_path %>
+    <% else %>
+        <%= link_to 'Login to add',"/auth/auth0" %>
+    <% end %>
+</header>
+<ul>
+    <% @books.each do |book| %>
+      <li class="book_entry">
+        <h2><%= book.title %></h2>
+        <h3><%= book.author.name %></div >
+        <div class="actions"><%= link_to 'Show', book %>
+      </li>
+    <% end %>
+</ul>
+</div>
+<br>
+<%= console %>

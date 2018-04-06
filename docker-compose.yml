@@ -10,19 +10,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
+    command: foreman start -f Procfile.dev -p 3000
     volumes:
       - .:/project
     ports:
       - "3000:3000"
+      - "35729:35729"
     depends_on:
       - db
-  guard:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    command: bundle exec guard -i
-    volumes:
-      - .:/project
-    ports:
-      - "35729:35729"
