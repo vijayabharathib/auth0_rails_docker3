@@ -1,5 +1,6 @@
 Rails.application.configure do
-  
+  config.middleware.insert_after(ActionDispatch::Static, Rack::LiveReload)
+
   config.cachestore = :memorystore
 
   config.read_encrypted_secrets = true
