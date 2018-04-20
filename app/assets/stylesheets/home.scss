@@ -3,6 +3,31 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 body {
-background: #ad0684;
+background: #c091b4;
 }
 
+.navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.brand-info {
+    display: flex;
+}
+
+.logo {
+    width: 3em;
+}
+
+.title {
+    margin: auto 1em;
+    font-size: 1.5em;
+    font-weight: 800;
+}
+
+.topnav{
+    list-style: none;
+    display: flex;
+    padding: 0;
+    align-items: stretch;
+}

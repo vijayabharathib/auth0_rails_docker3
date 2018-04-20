@@ -2,8 +2,8 @@
 <div>
 <header>
     <h1>Books</h1>
-    <% if current_user %>
-        <%= link_to '+', new_book_path %>
+    <% if user_signed_in? %>
+        <%= link_to current_user.name, new_book_path %>
     <% else %>
         <%= link_to 'Login to add',"/auth/auth0" %>
     <% end %>
@@ -11,8 +11,8 @@
 <ul>
     <% @books.each do |book| %>
       <li class="book_entry">
-        <h2><%= book.title %></h2>
-        <h3><%= book.author.name %></div >
+        <h2><%= book.name %></h2>
+        <h3><%= book.author %></div >
         <div class="actions"><%= link_to 'Show', book %>
       </li>
     <% end %>

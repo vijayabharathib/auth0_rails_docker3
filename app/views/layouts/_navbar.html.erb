@@ -1,0 +1,12 @@
+<nav class="navbar">
+    <div class="brand-info"> 
+        <%= image_tag "book.svg",class: "logo" %>
+        <div class="title">BookShelf</div>
+    </div>
+    <ul class="topnav">
+        <% if user_signed_in? %>
+            <li><%= link_to "Profile",profile_path %></li>
+            <li><%= link_to "Logout",auth_logout_path %></li> 
+        <% end %>
+    </ul>
+</nav>

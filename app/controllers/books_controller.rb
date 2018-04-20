@@ -1,20 +1,29 @@
 class BooksController < ApplicationController
-  before_action :authenticate_user!, except: [:index,:show]
+  before_action :authenticate_user!
   before_action :set_book, only: [:show, :edit, :update, :destroy]
 
   def index
     @books = Book.all
   end
 
+  def index
+    if(params[:place].nil?)
+      @books=Book.all
+    else 
+      @books=Book.within_shelf(params[:place],current_user)
+    end
+  end
+
   def show
-    @current_shelf=@book.shelves.by_user(current_user)
-    if @current_shelf.blank?
+    current_shelf=@book.shelves.by_user(current_user).first
+    if current_shelf.blank?
       @shelf=Shelf.new
       @place=""
     else 
-      @shelf=@current_shelf
+      @shelf=current_shelf
       @place=@shelf.place
     end 
+    logger.debug @shelf.inspect
   end
 
   def new
@@ -25,34 +34,26 @@ class BooksController < ApplicationController
   end
 
   def create
-    logger.debug params
     @book = Book.new(book_params)
-
-    respond_to do |format|
-      if @book.save
-        format.html { redirect_to @book, notice: 'Book was successfully created.' }
-      else
-        format.html { render :new }
-      end
+    if @book.save
+      redirect_to @book
+    else
+      render :new
     end
   end
 
   def update
-    respond_to do |format|
       if @book.update(book_params)
-        format.html { redirect_to @book, notice: 'Book was successfully updated.' }
+        redirect_to @book
       else
-        format.html { render :edit }
+        render :edit
       end
-    end
   end
 
 
   def destroy
     @book.destroy
-    respond_to do |format|
-      format.html { redirect_to books_url, notice: 'Book was successfully destroyed.' }
-    end
+    redirect_to books_url
   end
 
   private
