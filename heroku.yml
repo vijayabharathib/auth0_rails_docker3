@@ -1,8 +1,0 @@
-build:
-  languages:
-    - ruby
-run:
-  web: bundle exec puma -C config/puma.rb
-release:
-  command:
-    - rake db:migrate
