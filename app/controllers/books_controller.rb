@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:index, :show, :new, :create]
+  before_action :set_book, only: [:show]
 
   def index
     if(params[:place].nil?)

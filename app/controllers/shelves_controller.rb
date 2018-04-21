@@ -9,6 +9,7 @@ class ShelvesController < ApplicationController
       book_id: shelf_params[:book_id],
       place: shelf_params[:place]
     )
+    redirect_to @shelf.book
   end
 
   def update

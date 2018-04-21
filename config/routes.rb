@@ -5,5 +5,5 @@ Rails.application.routes.draw do
   get "/profile" => "home#profile"
   get "/auth/logout" => "auth0#logout"
   resources :books
-  # resources :shelves
+  resources :shelves
 end
