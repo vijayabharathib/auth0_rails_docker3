@@ -12,7 +12,7 @@ Rails.application.configure do
 
   # whitelist docker container ip
   # might break for other devs
-  #config.web_console.whitelisted_ips = ['172.19.0.1']
+  config.web_console.whitelisted_ips = ['172.19.0.1']
 
   # Do not eager load code on boot.
   config.eager_load = false

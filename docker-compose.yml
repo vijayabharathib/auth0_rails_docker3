@@ -19,3 +19,5 @@ services:
       - "35729:35729"
     depends_on:
       - db
+    tty: true
+    stdin_open: true

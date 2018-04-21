@@ -3,15 +3,19 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 nav {
+    background: rgba(100,250,100,.5);
     display: flex;
+    border-radius: 2px;
+    margin-bottom: 10px;
     justify-content: space-between;
     div { display: flex; }
     .logo { width: 3em; }
-    h1 { margin: auto 1em; }
+    h1 { margin: auto .1em; }
     ul {
       list-style: none;
       display: flex;
-      align-items: stretch;
+      justify-content: space-around;
+      padding: 0;
     }
-    li { padding-left: 1em; }
+    li { padding: .5em; }
 }

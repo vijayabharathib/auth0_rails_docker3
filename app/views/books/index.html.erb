@@ -1,23 +1,14 @@
 <p><%= notice %></p>
-<div>
-<header>
-    <%= render 'shelf_list' %>
-</header>
-<ul>
+<div class="books">
+<%= render 'shelf_list' %>
+<%= link_to "Add New Book", new_book_path , class: 'new_book' %>
+<section class="book_list">
     <% @books.each do |book| %>
-      <li class="book_entry">
-        <h2><%= book.name %></h2>
-        <h3><%= book.author %></div >
-        <div class="actions"><%= link_to 'Show', book %>
-      </li>
+      <article class="book_entry">
+        <h2><%= link_to book.name.capitalize, book %></h2>
+        <h3><%= book.author.capitalize %></h3 >
+      </article>
     <% end %>
-</ul>
-<div>
-<% if user_signed_in? %>
-    <%= link_to "Add New Book", new_book_path %>
-<% else %>
-    <%= link_to 'Login to add',"/auth/auth0" %>
-<% end %>
-</div>
+</section>
 </div>
 <br>

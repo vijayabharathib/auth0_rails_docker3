@@ -1,6 +1,8 @@
-<section class="welcome">
+<section class="welcome card">
   <h1>Bookshelf</h1>
   <h2>Built on Ruby on Rails secured with Auth0</h2>
-  <a href="/auth/auth0">Login</a>
+  <a class="btn green" href="/auth/auth0">Login</a>
 </section>
-<%= debug session[:userinfo] %>
+<% if Rails.env.development? %>
+ <%= debug session[:userinfo] %>
+<% end %>
