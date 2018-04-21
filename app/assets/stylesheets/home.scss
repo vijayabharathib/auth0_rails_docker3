@@ -1,33 +1,9 @@
-// Place all the styles related to the Home controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
 
-body {
-background: #c091b4;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-}
-
-.brand-info {
-    display: flex;
-}
-
-.logo {
-    width: 3em;
-}
-
-.title {
-    margin: auto 1em;
-    font-size: 1.5em;
-    font-weight: 800;
-}
-
-.topnav{
-    list-style: none;
-    display: flex;
-    padding: 0;
-    align-items: stretch;
+.welcome {
+    max-width: 18em;
+    padding: 1em;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px grey;
+    text-align: center;
+    margin: 0 auto;
 }

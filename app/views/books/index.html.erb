@@ -1,12 +1,7 @@
 <p><%= notice %></p>
 <div>
 <header>
-    <h1>Books</h1>
-    <% if user_signed_in? %>
-        <%= link_to current_user.name, new_book_path %>
-    <% else %>
-        <%= link_to 'Login to add',"/auth/auth0" %>
-    <% end %>
+    <%= render 'shelf_list' %>
 </header>
 <ul>
     <% @books.each do |book| %>
@@ -17,6 +12,13 @@
       </li>
     <% end %>
 </ul>
+<div>
+<% if user_signed_in? %>
+    <%= link_to "Add New Book", new_book_path %>
+<% else %>
+    <%= link_to 'Login to add',"/auth/auth0" %>
+<% end %>
+</div>
 </div>
 <br>
 <%= console %>
